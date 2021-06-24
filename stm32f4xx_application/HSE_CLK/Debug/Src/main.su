@@ -1,0 +1,5 @@
+main.c:20:5:main	112	static
+main.c:79:6:SystemClockConfig	80	static
+main.c:129:6:UART2_Init	8	static
+main.c:148:9:ConvertoCap	16	static
+main.c:155:6:Error_handler	4	static
