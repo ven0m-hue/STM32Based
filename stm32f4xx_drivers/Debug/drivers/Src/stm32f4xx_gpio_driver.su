@@ -7,5 +7,5 @@ stm32f4xx_gpio_driver.c:202:6:GPIO_WriteToOutputPin	16	static
 stm32f4xx_gpio_driver.c:220:6:GPIO_WriteToOutputPort	16	static
 stm32f4xx_gpio_driver.c:224:6:GPIO_ToggleOutputPin	16	static
 stm32f4xx_gpio_driver.c:243:6:GPIO_IRQInterruptConfig	16	static
-stm32f4xx_gpio_driver.c:281:6:GPIO_IRQPriorityConfig	24	static
-stm32f4xx_gpio_driver.c:293:6:GPIO_IRQHandling	16	static
+stm32f4xx_gpio_driver.c:294:6:GPIO_IRQPriorityConfig	24	static
+stm32f4xx_gpio_driver.c:318:6:GPIO_IRQHandling	16	static

@@ -16,5 +16,5 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Startup/startup_stm32f446retx.o: ../Startup/startup_stm32f446retx.s Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -I"F:/STM32Workspace/PLL_CLK_HSE/Startup" -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -I"C:/Users/91900/Desktop/STM32Based/stm32f4xx_application/PLL_CLK_HSE/Startup" -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 

@@ -1,6 +1,6 @@
 Src/msp.o: ../Src/msp.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
- f:\stm32workspace\usart_rx_tx\inc\stm32f4xx_hal_conf.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/../../../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
@@ -28,7 +28,7 @@ Src/msp.o: ../Src/msp.c \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
-f:\stm32workspace\usart_rx_tx\inc\stm32f4xx_hal_conf.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/../../../Inc/stm32f4xx_hal_conf.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 

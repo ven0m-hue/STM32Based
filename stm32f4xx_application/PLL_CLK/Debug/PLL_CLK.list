@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_ranges 000005c0  00000000  00000000  00028e28  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00020cd8  00000000  00000000  000293e8  2**0
+ 16 .debug_macro  00020cde  00000000  00000000  000293e8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00007ac4  00000000  00000000  0004a0c0  2**0
+ 17 .debug_line   00007c4e  00000000  00000000  0004a0c6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000c7baa  00000000  00000000  00051b84  2**0
+ 18 .debug_str    000c7bea  00000000  00000000  00051d14  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  0011972e  2**0
+ 19 .comment      00000053  00000000  00000000  001198fe  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001c7c  00000000  00000000  00119784  2**2
+ 20 .debug_frame  00001c7c  00000000  00000000  00119954  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -4169,8 +4169,8 @@ int main()
 	 * Since various peripherals are dependent on the system clock, so its a good idea to place system config call
 	 * above all the inits.
 	 */
-	SystemClockConfig(SYS_CLOCK_FREQ_120MHz);
- 8001d0e:	2078      	movs	r0, #120	; 0x78
+	SystemClockConfig(SYS_CLOCK_FREQ_180MHz);
+ 8001d0e:	20b4      	movs	r0, #180	; 0xb4
  8001d10:	f000 f876 	bl	8001e00 <SystemClockConfig>
 
 	UART2_Init(); // Since the APB bus frequnecy has changed the baud rate must be re-configured

@@ -62,8 +62,8 @@ all: main-build
 main-build: USART_RX_TX_INT.elf secondary-outputs
 
 # Tool invocations
-USART_RX_TX_INT.elf: $(OBJS) $(USER_OBJS) F:\STM32Workspace\USART_RX_TX_INT\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "USART_RX_TX_INT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"F:\STM32Workspace\USART_RX_TX_INT\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USART_RX_TX_INT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+USART_RX_TX_INT.elf: $(OBJS) $(USER_OBJS) C:\Users\91900\Desktop\STM32Based\stm32f4xx_application\USART_RX_TX_INT\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "USART_RX_TX_INT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\91900\Desktop\STM32Based\stm32f4xx_application\USART_RX_TX_INT\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USART_RX_TX_INT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

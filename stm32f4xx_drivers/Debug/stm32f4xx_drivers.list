@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00001dcd  00000000  00000000  00012200  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000103b  00000000  00000000  00013fcd  2**0
+ 17 .debug_line   0000105d  00000000  00000000  00013fcd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00008b30  00000000  00000000  00015008  2**0
+ 18 .debug_str    00008b40  00000000  00000000  0001502a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  0001db38  2**0
+ 19 .comment      00000053  00000000  00000000  0001db6a  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000288  00000000  00000000  0001db8c  2**2
+ 20 .debug_frame  00000288  00000000  00000000  0001dbc0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1187,6 +1187,10 @@ void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
  800091c:	e000e188 	.word	0xe000e188
 
 08000920 <GPIO_IRQPriorityConfig>:
+ * @return            - None
+ *
+ * @Note              - Be careful with the setting of the priority register.
+ */
 void GPIO_IRQPriorityConfig(uint8_t IRQNumber,uint32_t IRQPriority)
 {
  8000920:	b480      	push	{r7}
@@ -1195,7 +1199,11 @@ void GPIO_IRQPriorityConfig(uint8_t IRQNumber,uint32_t IRQPriority)
  8000926:	4603      	mov	r3, r0
  8000928:	6039      	str	r1, [r7, #0]
  800092a:	71fb      	strb	r3, [r7, #7]
-	//1. first lets find out the ipr register
+	 * 						  -> 237%4 is [0-]1 ie 2nd section. and mul by 8
+	 * 						  -> | V | v | v | v | r | r | r | r | v- valid r- reserved (2bytes ie. 8bits)
+	 * 						  ->  shift it to the higher valid bits
+	 */
+
 		uint8_t iprx = IRQNumber / 4;
  800092c:	79fb      	ldrb	r3, [r7, #7]
  800092e:	089b      	lsrs	r3, r3, #2

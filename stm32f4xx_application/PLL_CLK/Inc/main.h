@@ -13,7 +13,7 @@
 #define SYS_CLOCK_FREQ_50MHz        50
 #define SYS_CLOCK_FREQ_80MHz        80
 #define SYS_CLOCK_FREQ_120MHz		120
-
+#define SYS_CLOCK_FREQ_180MHz		180
 
 
 #endif /* MAIN_H_ */
