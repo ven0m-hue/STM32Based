@@ -24,31 +24,6 @@ void HAL_MspInit(void)
 	HAL_NVIC_SetPriority(UsageFault_IRQn, 0, 0);
 }
 
-void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
-{
-	GPIO_InitTypeDef tim2ch1gpio;
-	/*
-	 * 1.Enable the timer peripheral
-	 * Since the Input capture is just a channel we must assign the behavior to the hardware
-	 * That is done by assigning it to a MCU pin aka gpio pin
-	 * 2.Alternate functionality initiation
-	 *   -> As timer 2 channel
-	 * 3. Enable the interrupt and set priority
-	 */
-	__HAL_RCC_TIM2_CLK_ENABLE();
-	__HAL_RCC_GPIOA_CLK_ENABLE();
-
-	tim2ch1gpio.Pin = GPIO_PIN_0; // According to the data sheet
-	tim2ch1gpio.Mode = GPIO_MODE_AF_PP;
-	tim2ch1gpio.Alternate = GPIO_AF1_TIM2; // According to the data sheet
-	HAL_GPIO_Init(GPIOA, &tim2ch1gpio);
-
-	HAL_NVIC_EnableIRQ(TIM2_IRQn);
-	HAL_NVIC_SetPriority(TIM2_IRQn, 15, 0);
-
-
-}
-
 void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *htim)
 {
 	GPIO_InitTypeDef tim2ch1gpio;
@@ -62,7 +37,7 @@ void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *htim)
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 
-	tim2ch1gpio.Pin = GPIO_PIN_0 | GPIO_PIN_1;
+	tim2ch1gpio.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_5;  // Added GPIOA Pin 5 Support to control the onboard LED using the PWM
 	tim2ch1gpio.Mode = GPIO_MODE_AF_PP;
 	tim2ch1gpio.Alternate = GPIO_AF1_TIM2; // According to the data sheet
 	HAL_GPIO_Init(GPIOA, &tim2ch1gpio);
