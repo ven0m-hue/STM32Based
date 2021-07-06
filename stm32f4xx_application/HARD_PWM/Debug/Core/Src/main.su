@@ -1,0 +1,7 @@
+main.c:38:5:main	16	static
+main.c:79:6:SystemClockConfig	96	static
+main.c:232:6:LSE_Config	8	static
+main.c:250:6:Timer2_Init	40	static
+main.c:295:6:GPIOLED_Init	4	static
+main.c:307:6:UART2_Init	8	static
+main.c:325:6:Error_handler	4	static
