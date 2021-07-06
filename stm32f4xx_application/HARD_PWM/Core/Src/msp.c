@@ -38,7 +38,7 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 
-	tim2ch1gpio.Pin = GPIO_PIN_5 | GPIO_PIN_1;
+	tim2ch1gpio.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_5; // Added GPIOA Pin to control the onboard LED via a PWM Signal
 	tim2ch1gpio.Mode = GPIO_MODE_AF_PP;
 	tim2ch1gpio.Alternate = GPIO_AF1_TIM2; // According to the data sheet
 	HAL_GPIO_Init(GPIOA, &tim2ch1gpio);
