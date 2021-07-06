@@ -1,13 +1,12 @@
 /*
  * main.c
  *
- *  Created on: Jun 22, 2021
+ *  Created on: July 6, 2021
  *      Author: Venom
  */
 
 //Includes
 #include "main.h"
-#include <stdbool.h>
 #include <string.h>
 #include <stdio.h>
 
@@ -31,7 +30,7 @@ uint32_t pulse2 = 12500; // pulse width = 1000Hz
 uint32_t pulse3 = 6250;  // pulse width = 2000Hz
 uint32_t pulse4 = 3125;  // pulse width = 4000Hz
 
-_Bool Is_CCR_Done = false;
+uint32_t CCReg; // Capture and compare register 
 
 char* user = "Hello VA-u\r\n";
 int main()
@@ -63,17 +62,6 @@ int main()
 	if (HAL_TIM_OC_Start_IT(&tim2,TIM_CHANNEL_3) != HAL_OK) Error_handler();
 
 	if (HAL_TIM_OC_Start_IT(&tim2,TIM_CHANNEL_4) != HAL_OK) Error_handler();
-
-
-	while(1)
-	{
-		   //If the interrupt flag is set, toggle the led
-		if(Is_CCR_Done)
-		{
-			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			Is_CCR_Done = false;
-		}
-	}
 
 
 	while(1);
@@ -289,7 +277,7 @@ void Timer2_Init(void)
 	if(HAL_TIM_OC_ConfigChannel(&tim2, &timerOCconfig, TIM_CHANNEL_1) != HAL_OK) Error_handler();
 
 }
-uint32_t CCReg;
+
 // Now lets implement the cpature callback, cuz when the input capture occurs interrupt is issued
 // Go to the time driver file
 void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
@@ -330,12 +318,14 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
 }
 void GPIOLED_Init()
 {
+#if 0
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	GPIO_InitTypeDef ledgpio;
 	ledgpio.Pin = GPIO_PIN_5;
 	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
 	ledgpio.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOA, &ledgpio);
+ #endif 
 }
 void UART2_Init(void)
 {
