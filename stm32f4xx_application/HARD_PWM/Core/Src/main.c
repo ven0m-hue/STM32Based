@@ -25,16 +25,7 @@ UART_HandleTypeDef huart2;
 //Global variables
 uint32_t clock_freq;  // for clock config
 uint32_t flash_latency;
-uint32_t CCReg;
 
-uint32_t pulse1 = 12500000; // pulse width =  500Hz
-uint32_t pulse2 = 12500; // pulse width = 1000Hz
-uint32_t pulse3 = 6250;  // pulse width = 2000Hz
-uint32_t pulse4 = 3125;  // pulse width = 4000Hz
-
-_Bool Is_CCR_Done = false;
-
-char* user = "Hello VA-u\r\n";
 int main()
 {
 	uint16_t brightness = 0;
