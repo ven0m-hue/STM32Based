@@ -8,3 +8,4 @@ STM32-NUCLEOF446RE Microcontroller Based application programs. Low level and Hig
 1. USART_RX_TX. (with and without interrupt)
 2. STM32 Clock configuration. HSE clock up to 16MHz, HSI up to 8MHz and all using the Phase Locked Loop (PLL) engine, clock upto 180MHz(Peak). 
 3. STM32 Timers. BASIC, GENERAL, ADVANCED TIMERS with interrupts.
+4. STM32 PWM for LED, PWM in gneral.
