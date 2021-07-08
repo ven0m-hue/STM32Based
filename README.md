@@ -1,6 +1,6 @@
 # STM32Based
 STM32-NUCLEOF446RE Microcontroller Based drivers. Low level and High level drivers from scractch. 
-I'm implementing as I'm learning. In the process. So far I've developed only the GPIO driver. 
+I'm implementing as I'm learning. In the process, so far I've developed,
 1. GPIO Driver.
 2. SPI Driver.
 3. Coming soon.
