@@ -3,7 +3,8 @@ STM32-NUCLEOF446RE Microcontroller Based drivers. Low level and High level drive
 I'm implementing as I'm learning. In the process, so far I've developed,
 1. GPIO Driver.
 2. SPI Driver.
-3. Coming soon.
+3. I2C Driver.
+4. Coming soon.
 
 STM32-NUCLEOF446RE Microcontroller Based application programs. Low level and High level initialization using the STMCubeMx Hardware Abstraction layer(HAL) API. 
 1. USART_RX_TX. (with and without interrupt)
