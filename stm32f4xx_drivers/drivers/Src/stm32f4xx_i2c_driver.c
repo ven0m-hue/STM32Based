@@ -771,9 +771,9 @@ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi)
 /*
  * I2C Event Callback (ISR)
  */
-void I2C_ApplicationEventCallback(I2C_Handle_t *pHandle, uint8_t Event)
+__weak void I2C_ApplicationEventCallback(I2C_Handle_t *pHandle, uint8_t Event)
 {
-
+	//This is a weak implementation of the function. Intended to be implemented in the main program.
 }
 
 uint32_t I2C_GetClockConfigInfo()
