@@ -475,28 +475,27 @@ void I2C_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
  *
  * @Note              - None
  */
-void I2C_IRQPriorityConfig(uint8_t IRQNumber,uint32_t IRQPriority)
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber,uint32_t IRQPriority)
 {
 	/*
-		 * 1. Math for calculating the Priority register.
-		 * 2. first lets find out the ipr register.
-		 * 3. There are 60 Banks of Priority register as per the ARM Cortex M4 Doc. (divided into 4 sections)
-		 * 4. Based on the given IRQ number, do -> IRQNUM/4 to select the register bank
-		 * 5. To select the particular ITQNUM do-> IRQNUM%4 to get the IRQPriority register and multiply them by 8 as they are 8bits (2 bytes wide.)
-		 * 6. Out of those 8 bits only higher 4 bits are valid and lower 4 bits are reserved.
-		 * 7. for eg. 237 ITQ NUM -> 237/4 is [0-]59th register bank
-		 * 						  -> 237%4 is [0-]1 ie 2nd section. and mul by 8
-		 * 						  -> | V | v | v | v | r | r | r | r | v- valid r- reserved (2bytes ie. 8bits)
-		 * 						  ->  shift it to the higher valid bits
-		 */
+	 * 1. Math for calculating the Priority register.
+	 * 2. first lets find out the ipr register.
+	 * 3. There are 60 Banks of Priority register as per the ARM Cortex M4 Doc. (divided into 4 sections)
+	 * 4. Based on the given IRQ number, do -> IRQNUM/4 to select the register bank
+	 * 5. To select the particular ITQNUM do-> IRQNUM%4 to get the IRQPriority register and multiply them by 8 as they are 8bits (1 byte wide.)
+	 * 6. Out of those 8 bits only higher 4 bits are valid and lower 4 bits are reserved.
+	 * 7. for eg. 237 IRQ NUM -> 237/4 is [0-59]59th register bank
+	 * 						  -> 237%4 is [0-3]1 ie 2nd section. and mul by 8
+	 * 						  -> | v | v | v | v | r | r | r | r | v- valid r- reserved (1 byte ie. 8bits)
+	 * 						  ->  shift it to the higher valid bits
+	 */
 
-			uint8_t iprx = IRQNumber / 4;
-			uint8_t iprx_section  = IRQNumber %4 ;
+		uint8_t iprx = IRQNumber / 4;  //Gives the  base offset address 
+		uint8_t iprx_section  = IRQNumber %4 ;
 
-			uint8_t shift_amount = ( 8 * iprx_section) + ( 8 - NO_PR_BITS_IMPLEMENTED) ;
+		uint8_t shift_amount = ( 8 * iprx_section) + ( 8 - NO_PR_BITS_IMPLEMENTED) ; //Gives the particular bit address
 
-			*(  NVIC_PR_BASE_ADDR + iprx ) |=  ( IRQPriority << shift_amount );
-
+		*(  NVIC_PR_BASE_ADDR + iprx ) |=  ( IRQPriority << shift_amount );
 }
 /*********************************************************************
  * @fn      		  - I2C_EV_IRQHandling
