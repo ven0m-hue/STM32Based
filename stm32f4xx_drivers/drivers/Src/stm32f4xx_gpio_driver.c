@@ -300,9 +300,9 @@ void GPIO_IRQPriorityConfig(uint8_t IRQNumber,uint32_t IRQPriority)
 	 * 4. Based on the given IRQ number, do -> IRQNUM/4 to select the register bank
 	 * 5. To select the particular ITQNUM do-> IRQNUM%4 to get the IRQPriority register and multiply them by 8 as they are 8bits (1 byte wide.)
 	 * 6. Out of those 8 bits only higher 4 bits are valid and lower 4 bits are reserved.
-	 * 7. for eg. 237 ITQ NUM -> 237/4 is [0-]59th register bank
-	 * 						  -> 237%4 is [0-]1 ie 2nd section. and mul by 8
-	 * 						  -> | V | v | v | v | r | r | r | r | v- valid r- reserved (2bytes ie. 8bits)
+	 * 7. for eg. 237 IRQ NUM -> 237/4 is [0-59]59th register bank
+	 * 						  -> 237%4 is [0-3]1 ie 2nd section. and mul by 8
+	 * 						  -> | v | v | v | v | r | r | r | r | v- valid r- reserved (1 byte ie. 8bits)
 	 * 						  ->  shift it to the higher valid bits
 	 */
 
