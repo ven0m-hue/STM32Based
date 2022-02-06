@@ -12,4 +12,5 @@ STM32-NUCLEOF446RE Microcontroller Based application programs. Low level and Hig
 3. STM32 Timers. BASIC, GENERAL, ADVANCED TIMERS with interrupts.
 4. STM32 PWM for LED, PWM in gneral.
 5. DMA applications. UARTtoSRAM, SRAM1toSRAM2, ADCtoSRAM
-6. Added UART Interrupt for multiplr interrupts. Also resolved mutiple bytes UART Interrupt recieve.
+6. Added UART Interrupt. For multiple interrupts. 
+   (Also resolved mutiple bytes UART Interrupt recieve.)
